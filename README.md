@@ -75,6 +75,7 @@ lxc exec wrk3 -- docker swarm join --token SWMTKN-1-1cvmi32q8esq4ex56xw82yig5g4g
     --listen-addr 10.251.126.99:2377
 ```
 ## Service
+
 ```
 docker service <create|ls|ps|inspect|update|rm>
 
@@ -84,8 +85,9 @@ mgr1
     docker service ps psight1
     docker service inspect psight1
 
+```
+### Scaling services
 
-# Scaling services
 ```
 lxc exec mgr1 -- ash
     docker service ls
@@ -94,7 +96,8 @@ lxc exec mgr1 -- ash
     OR
     docker service update --replicas 3 psight1
 ```
-# Rolling updates
+### Rolling updates
+
 ```
 lxc exec mgr1 -- ash
     docker service rm psight1
@@ -111,6 +114,7 @@ lxc exec mgr1 -- ash
 docker service create --update-parallelism 2 --update-delay 10m
 если указать эти параметры при создании сервиса при обновлении образа за раз будет обновлятся по два контейнера через каждые 10 минут
 **
+
 ```
     docker service update --image nigelpoulton/tu-demo:v2 --update-parallelism 2 --update-delay 10s psight2
     docker service ps psight2 | grep v:2
@@ -118,8 +122,10 @@ docker service create --update-parallelism 2 --update-delay 10m
         Update status
         UpdateConfig
 ```
-#Stack and DABs
+
+##Stack and DABs
 У нас есть docker-compose.yml разными сервисами  и чтобы весь этот зоопарк запустить в Swam нужен Docker-compose чтобы преоброзовать yaml файл в DAB файл
+
 ```
 lxc exec mgr1 -- ash
     docker-compose build
