@@ -1,0 +1,20 @@
+#cloud-config
+
+hostname: ranch
+
+rancher:
+  console: ubuntu
+  network:
+    interfaces:
+      eth0:
+        address: 192.168.195.140/24
+        gateway: 192.168.195.1
+        mtu: 1500
+        dhcp: false
+    dns:
+      nameservers:
+        - 1.1.1.1
+        - 8.8.4.4
+
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDyXtrl+529JiJZVr2IG9HOXLZITDpJs5cACco3NwO1jNqOkms7YjDndgreY+ifmikr96JuEL/vm/3J2d3yH/2CdEW2ilJ0+9vtvDUj/iWUvcn6y3/WPR8RB5YSuQIJRFVSWk4J2HVx7fcE+6yPdmr2AdhiU/+JednX1orvkv8XZ1Ts84k/b06bHpRbSU+SRmaee/jffbGRenltiDwS1hxt9VyNe0WM+Ebqk6TDgacvzHejPi6LWViaz50bHMfHZlvhTeSOnqQE2OBaD+PwCWhO8OAlyJRZWw+LfjMgD2Ozjzq+LKzgxHiQAcBZG/TFpQ0wlhaZwBmhaXkkVlA0o4z8goQ6QyhAf5on9NzfcuJOKJrzFXkp6DE8VyxSVB6inho/1HBaerTMTcdeNrTgFhZkMGkEHAc8u2akkNb7cNYfVcxKZhMzahF6Pwfih1rOXPNc1XtLR2PEBK7YsPoESVoR3f65H2ZzAODM1Lw0nFots4/MBNJp+Ijqlvnb5H3ZfDs= bsagynov@GL-NB-IT-02

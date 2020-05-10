@@ -110,11 +110,9 @@ lxc exec mgr1 -- ash
     docker service ls
     docker service inspect --pretty psight2
 ```
-**
-docker service create --update-parallelism 2 --update-delay 10m
-если указать эти параметры при создании сервиса при обновлении образа за раз будет обновлятся по два контейнера через каждые 10 минут
-**
 
+**docker service create --update-parallelism 2 --update-delay 10m***
+если указать эти параметры при создании сервиса при обновлении образа за раз будет обновлятся по два контейнера через каждые 10 минут
 ```
     docker service update --image nigelpoulton/tu-demo:v2 --update-parallelism 2 --update-delay 10s psight2
     docker service ps psight2 | grep v:2
